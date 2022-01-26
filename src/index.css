@@ -1,13 +1,239 @@
-body {
+/* ----- Global styling------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,600&family=Quicksand:wght@300;500;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,100&display=swap");
+*,
+::after,
+::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100vh;
+  font-family: "Quicksand", sans-serif;
+}
+:root {
+  --bg: #fafafa;
+  --black: black;
+  --white: #fff;
+  --primary-1: hsl(205, 78%, 60%);
+  --clr-purple: #4b145b;
+  --clr-red-special: #b4345c;
+  --clr-grey-special: #eae6eb;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --margin: 3px 0;
+  --padding: 5px;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+  margin-top: 0.5rem;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+  margin: 3px 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*------ header styling starts ----- */
+.container header {
+  display: flex;
+  align-items: center;
+  background-color: var(--black);
+  color: var(--white);
+  margin: 0 0.2rem;
+  border-radius: 5px;
+}
+img {
+  object-fit: cover;
+  max-height: 100px;
+  width: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 2px solid var(--black);
+}
+.title {
+  margin: 0 auto;
+  padding: 5px;
+}
+/* header styling ends */
+
+/* form section */
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+  
+}
+.form input{
+  width: 20rem;
+  height: 3rem;
+  border-radius: 5px;
+  box-shadow: 1px 3px var(--white);
+  font-size: 1.3rem;
+  text-align: center;
+}
+.form button {
+  margin-left: 10px;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: var(--clr-red-special);
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* TODO: -----BUTTON STYLING------- */ 
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.btn {
+  width: 14rem;
+  height: 3.5rem;
+  font-style: inherit;
+  background-color: var(--clr-red-special);
+  color: var(--white);
+  font-size: 1.2rem;
+  border-radius: 6px;
+  position: fixed;
+  top: 85%;
+  cursor: pointer;
+
+}
+.btn:hover{
+  opacity: 1.2;
+}
+
+/* BUTTON STYLING ENDS */
+
+/* ----activity component styling starts -----*/
+.card {
+  cursor: pointer;
+  background-color: transparent;
+  height: 400px;
+  margin: 20px 5px;
+  perspective: 1000px;
+  display: flex;
+  border: 2px solid black;
+  border-radius: 10px;
+  
+  
+
+}
+
+.card h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  border-bottom: 1px #fff solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card-front {
+  background-color: var(--clr-red-special);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.card-back {
+  background-color: var(--clr-red-special);
+  color: white;
+  padding: 20px;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+.card-back h1 {
+  font-size: 1.7rem;
+}
+.card ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.card li {
+  list-style: none;
+  margin: 20px;
+  padding-bottom: 20px;
+  font-size: 1.5rem;
+}
+.card-back li strong {
+ font-weight: 700;
+}
+
+/* --activity component styling ends---- */
+
+/* TODO: Media queries */
+@media (max-width: 540px) {
+  body {
+    background-color: #b4345c;
+  }
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+}
+.spinner h2 {
+  margin-right: 20px;
+  margin-top: 10px;
 }
