@@ -1,4 +1,4 @@
-
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Spinner from './Spinner';
 const Activity = ({ isLoading, items }) => {
    // console.log(items);
@@ -9,6 +9,7 @@ const Activity = ({ isLoading, items }) => {
     <div className='card-inner'>
       <div className='card-front'>
       <p> Turn over the card to see activity</p>
+      <ArrowForwardIosIcon id="arrow"/>
       </div>
       <div className='card-back'>
         <h1>{items.activity}</h1>
